@@ -1,6 +1,7 @@
 package services;
 import entities.Vehicle;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +19,41 @@ public class ParkingLot{
         Vehicle vehicle = new Vehicle(plate, model, color, LocalDateTime.now());
         vehicles.put(plate, vehicle);
 
-        System.out.println("Vehicle registered" + plate + " in "  + vehicle.getDateTime());
+        System.out.println("Vehicle registered: " + plate + " in "  + vehicle.getDateTime());
 
+    }
+
+    public void registerExit(String plate){
+        Vehicle vehicle = vehicles.get(plate);
+        if(vehicle == null){
+            System.out.println("Vehicle NOT registered");
+            return;
+        }
+
+        LocalDateTime exitTime = LocalDateTime.now();
+        Duration duration = Duration.between(vehicle.getDateTime(), exitTime);
+
+        long minutes = duration.toMinutes();
+        long hours = (long) Math.ceil(minutes / 60.0);
+
+        double pricePerHour = 5.0;
+        double totalPrice = hours * pricePerHour;
+
+        vehicle.remove(plate);
+
+        System.out.println("Vehicle: " + plate + " exit from parking...");
+        System.out.println("Parking time: " + hours + " hours");
+        System.out.println("Total price: " + totalPrice);
+    }
+    public void listVehicles(){
+        if(vehicles.isEmpty()){
+            System.out.println("No vehicles registered");
+            return;
+        }
+
+        System.out.println("Vehicles listed");
+        for (Vehicle v: vehicles.values()){
+            System.out.println(v);
+        }
     }
 }

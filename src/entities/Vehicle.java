@@ -1,6 +1,7 @@
 package entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Vehicle {
     private String plate;
@@ -44,9 +45,13 @@ public class Vehicle {
     }
 
     public String toString(){
-        return "Plate:" + plate +
-                ", Model" + model +
-                "Color:" + color +
-                "Entry" + dateTime;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        return "Model: " + model +
+                ", Plate: " + plate +
+                ", Color: " + color +
+                ", Entry: " + dateTime.format(dtf);
+    }
+
+    public void remove(String plate) {
     }
 }
