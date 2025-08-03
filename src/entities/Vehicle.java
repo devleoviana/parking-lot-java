@@ -44,6 +44,7 @@ public class Vehicle {
         return dateTime;
     }
 
+    @Override
     public String toString(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         return "Model: " + model +
@@ -52,6 +53,4 @@ public class Vehicle {
                 ", Entry: " + dateTime.format(dtf);
     }
 
-    public void remove(String plate) {
-    }
 }
