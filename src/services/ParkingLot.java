@@ -13,7 +13,7 @@ public class ParkingLot{
 
     public void registerEntry(String plate, String model, String color) {
         if (vehicles.containsKey(plate)) {
-            System.out.println("Vehicle already registered");
+            System.out.println("Vehicle already registered try another plate");
             return;
         }
 
@@ -46,6 +46,7 @@ public class ParkingLot{
         System.out.println("Parking time: " + hours + " hours");
         System.out.println("Total price: " + totalPrice);
     }
+
     public void listVehicles(){
         if(vehicles.isEmpty()){
             System.out.println("No vehicles registered");

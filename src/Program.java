@@ -9,7 +9,7 @@ public class Program {
             int option;
 
             do {
-                System.out.println("\n--- Parking Lot ---");
+                System.out.println("\n--- Senna Parking Lot ---");
                 System.out.println("1. Entry Register");
                 System.out.println("2. Exit Register");
                 System.out.println("3. Vehicles List");
@@ -17,7 +17,7 @@ public class Program {
                 System.out.print("Choose an option: ");
 
                 option = scanner.nextInt();
-                scanner.nextLine(); // limpar buffer
+                scanner.nextLine();
 
                 switch (option) {
                     case 1:
