@@ -1,4 +1,4 @@
-*🚗 Senna Parking Lot System (Java)*
+*🏎️ Senna Parking Lot System (Java)*
 
 A simple object-oriented Java project to manage a parking lot system.
 It allows users to register the entry of vehicles, track them, and display all parked cars.
